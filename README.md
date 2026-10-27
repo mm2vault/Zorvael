@@ -9,6 +9,13 @@ Kendi bilgisayarında çalışan, Türkçe sesle ya da yazıyla konuşan kişise
 - **Telefon (Android):** ADB ile uygulama açar, arama ve SMS hazırlar, ekran görüntüsü alır; hassas işlerde onay ister. Kurulum: `PHONE.md`.
 - **Diğer işler:** saat, Google araması, site açma, izinli uygulamaları açma, not alma.
 
+## Ücretsiz yerel beyin (Ollama)
+API ücreti ödemek istemezsen model bilgisayarında çalışır, internet gerekmez.
+1. https://ollama.com adresinden Ollama'yı kur.
+2. Bir model indir: `ollama pull qwen2.5:7b` (RAM'i az bilgisayarda `qwen2.5:3b`).
+3. `.env` içine `ZORVAEL_BRAIN=ollama` yaz, `python main.py --text` ile çalıştır.
+Not: Küçük modeller Claude kadar akıllı değil ve araç kullanmayı bazen yanlış yapar. Model dosyaları repoya konmaz, Ollama indirir.
+
 ## Kurulum
 1. Python 3.10+ kur.
 2. Anthropic Console'dan API anahtar(lar)ı al.
@@ -22,7 +29,7 @@ Kendi bilgisayarında çalışan, Türkçe sesle ya da yazıyla konuşan kişise
    - Yazılı (kod işleri için daha rahat): `python main.py --text` (`/anahtarlar` yazarsan anahtarların durumunu görürsün)
 
 ## Dosyalar
-`main.py` döngü · `brain.py` Claude + araç döngüsü · `keypool.py` anahtar geçişi · `memory.py` hafıza · `voice.py` ses · `tools.py` yetenekler · `phone.py` telefon kontrolü · `config.py` kişilik ve ayarlar
+`main.py` döngü · `brain.py` Claude + araç döngüsü · `local_brain.py` yerel Ollama beyni · `keypool.py` anahtar geçişi · `memory.py` hafıza · `voice.py` ses · `tools.py` yetenekler · `phone.py` telefon kontrolü · `config.py` kişilik ve ayarlar
 
 ## Güvenlik
 - `.env`, `memory.db` ve `workspace/` `.gitignore` içindedir; anahtarlarını asla commit etme.

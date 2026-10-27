@@ -6,6 +6,13 @@ from keypool import KeyPool
 from tools import SCHEMAS, run_tool
 
 
+def build_system(memory):
+    facts = memory.facts()
+    mem = "\n".join(f"- {f}" for f in facts) if facts else "(henüz bir şey kaydedilmedi)"
+    now = datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
+    return f"{config.PERSONA}\n\nŞu an: {now}\n\nKullanıcı hakkında bildiklerin:\n{mem}"
+
+
 def _is_user_text(m):
     return m["role"] == "user" and isinstance(m["content"], str)
 
@@ -21,10 +28,7 @@ class Brain:
         self.history = []
 
     def _system(self):
-        facts = self.memory.facts()
-        mem = "\n".join(f"- {f}" for f in facts) if facts else "(henüz bir şey kaydedilmedi)"
-        now = datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
-        return f"{config.PERSONA}\n\nŞu an: {now}\n\nKullanıcı hakkında bildiklerin:\n{mem}"
+        return build_system(self.memory)
 
     def _trim(self):
         """Geçmişi kısaltır, ama araç çağrısı/sonucu çiftlerini bölmez."""

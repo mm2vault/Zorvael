@@ -22,7 +22,10 @@ def _collect_keys():
 
 
 API_KEYS = _collect_keys()
+BRAIN = os.getenv("ZORVAEL_BRAIN", "claude").lower()   # claude | ollama
 MODEL = os.getenv("ZORVAEL_MODEL", "claude-sonnet-5-5")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_MODEL = os.getenv("ZORVAEL_OLLAMA_MODEL", "qwen2.5:7b")
 VOICE = os.getenv("ZORVAEL_VOICE", "tr-TR-AhmetNeural")
 WAKE = os.getenv("ZORVAEL_WAKE", "zorvael").lower()
 BASE = os.path.dirname(os.path.abspath(__file__))

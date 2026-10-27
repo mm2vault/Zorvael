@@ -22,6 +22,9 @@ def strip_wake(text):
 def make_brain():
     memory = Memory(config.DB_PATH)
     tools.set_memory(memory)
+    if config.BRAIN == "ollama":
+        from local_brain import OllamaBrain
+        return OllamaBrain(memory), memory
     return Brain(memory), memory
 
 
