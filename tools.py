@@ -162,3 +162,10 @@ def run_tool(name, args):
         return str(fn(**args))
     except Exception as e:  # noqa: BLE001
         return f"Araç hatası: {e}"
+
+
+# Telefon yetenekleri (ADB). phone.py ayrı dosyada, onay mantığı orada.
+import phone  # noqa: E402
+
+FUNCTIONS.update(phone.FUNCTIONS)
+SCHEMAS.extend(phone.SCHEMAS)

@@ -6,6 +6,7 @@ Kendi bilgisayarında çalışan, Türkçe sesle ya da yazıyla konuşan kişise
 - **Çoklu anahtar:** `.env` içine istediğin kadar API anahtarı yazarsın. Biri bitince, limiti dolunca ya da geçersiz çıkınca otomatik sıradakine geçer. Geçici sorunlarda anahtarı kısa süre bekletip geri alır.
 - **Hafıza:** Konuşmalar `memory.db` dosyasına kaydedilir. Yeniden açtığında kaldığı yerden devam eder. Senin hakkındaki kalıcı bilgileri (ad, tercih, proje) ayrıca öğrenir; "bunu unut" dersen siler; "geçen gün ... hakkında ne konuşmuştuk" dersen eski konuşmalarda arar.
 - **Kod yazma:** Kodu `workspace/` klasörüne dosya olarak yazar, okur, listeler. Komut çalıştırması gerekirse (ör. `python app.py`) her seferinde konsolda onayını ister. Dosya araçları workspace dışına çıkamaz.
+- **Telefon (Android):** ADB ile uygulama açar, arama ve SMS hazırlar, ekran görüntüsü alır; hassas işlerde onay ister. Kurulum: `PHONE.md`.
 - **Diğer işler:** saat, Google araması, site açma, izinli uygulamaları açma, not alma.
 
 ## Kurulum
@@ -21,7 +22,7 @@ Kendi bilgisayarında çalışan, Türkçe sesle ya da yazıyla konuşan kişise
    - Yazılı (kod işleri için daha rahat): `python main.py --text` (`/anahtarlar` yazarsan anahtarların durumunu görürsün)
 
 ## Dosyalar
-`main.py` döngü · `brain.py` Claude + araç döngüsü · `keypool.py` anahtar geçişi · `memory.py` hafıza · `voice.py` ses · `tools.py` yetenekler · `config.py` kişilik ve ayarlar
+`main.py` döngü · `brain.py` Claude + araç döngüsü · `keypool.py` anahtar geçişi · `memory.py` hafıza · `voice.py` ses · `tools.py` yetenekler · `phone.py` telefon kontrolü · `config.py` kişilik ve ayarlar
 
 ## Güvenlik
 - `.env`, `memory.db` ve `workspace/` `.gitignore` içindedir; anahtarlarını asla commit etme.
