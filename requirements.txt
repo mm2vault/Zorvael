@@ -1,0 +1,6 @@
+anthropic>=0.40
+python-dotenv
+SpeechRecognition
+PyAudio
+edge-tts
+pygame

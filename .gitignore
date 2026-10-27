@@ -1,0 +1,6 @@
+.env
+memory.db
+workspace/
+notlar.txt
+__pycache__/
+*.pyc
